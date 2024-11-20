@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Kartendarstellung",
+    "layer": [
+      {
+        "data": {
+          "url": "https://vega.github.io/vega-datasets/data/world-110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "countries"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "#e0e0e0",
+          "stroke": "#ffffff",
+          "strokeWidth": 0.5
+        },
+        "projection": {
+          "type": "mercator",
+          "scale": 650,
+          "center": [10, 50]  
+        }
+      },
+      {
+        "data": {
+          "values": [
+            {"latitude": 55.7558, "longitude": 37.6173, "Kategorie": "Russland", "Wert": 144},
+            {"latitude": 52.5200, "longitude": 13.4050, "Kategorie": "Deutschland", "Wert": 83},
+            {"latitude": 51.509865, "longitude": -0.118092, "Kategorie": "UK", "Wert": 69},
+            {"latitude": 48.8566, "longitude": 2.3522, "Kategorie": "Frankreich", "Wert": 65},
+            {"latitude": 41.9028, "longitude": 12.4964, "Kategorie": "Italien", "Wert": 59},
+            {"latitude": 40.4168, "longitude": -3.7038, "Kategorie": "Spanien", "Wert": 48},
+            {"latitude": 52.2297, "longitude": 21.0122, "Kategorie": "Polen", "Wert": 40},
+            {"latitude": 50.4501, "longitude": 30.5234, "Kategorie": "Ukraine", "Wert": 38}
+          ]
+        },
+        "mark": {
+          "type": "circle",
+          "opacity": 0.8
+        },
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "color": {"field": "Kategorie", "type": "nominal"},
+          "size": {
+            "field": "Wert",
+            "type": "quantitative",
+            "title": "Einwohner (in Mio)",
+            "scale": {"domain": [0, 150], "range": [100, 1500]} 
+          }
+        },
+        "projection": {
+          "type": "mercator",
+          "scale": 650,
+          "center": [10, 50] 
+        }
+      }
+    ],
+    "width": 900,
+    "height": 500,
+    "config": {
+      "view": {"stroke": null}
+    }
+  }
+  

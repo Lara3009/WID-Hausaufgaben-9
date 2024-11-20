@@ -42,3 +42,6 @@ npm install
 ```sh
 npm run dev
 ```
+
+Screenshot meines JSONs
+![alt text](image-2.png)
